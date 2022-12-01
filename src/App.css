@@ -5,7 +5,6 @@ body {
 .App {
   margin: 50px auto 0;
   width: 550px;
-  height: 550px;
   background-color: #F5F7FB;
 }
 
@@ -24,7 +23,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 550px;
 }
 
 .start-container > h1 {
@@ -69,4 +68,37 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
+}
+
+/* Single Question */
+.singlequestion-container {
+  padding: 40px 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.singlequestion-container h1 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18.7px;
+  color: #293264;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.singlequestion-container button {
+  font-weight: 500;
+  font-size: 10.24px;
+  line-height: 12.39px;
+  color: #293264;
+  border-color: #4D5B9E;
+  margin: 10px 5px;
+  padding: 5px 10px 4px;
+  background-color: transparent;
+  border-radius: 7.94px;
 }
