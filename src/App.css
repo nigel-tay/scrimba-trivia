@@ -75,7 +75,7 @@ body {
   padding: 40px 75px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -101,4 +101,8 @@ body {
   padding: 5px 10px 4px;
   background-color: transparent;
   border-radius: 7.94px;
+}
+
+.singlequestion-container hr {
+  width: 399px;
 }
