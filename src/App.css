@@ -19,6 +19,7 @@ body {
 
 /* Start Page */
 .start-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,4 +57,16 @@ body {
   background-color: #818ED0;
   color: #F5F7FB;
   cursor:pointer;
+}
+
+.top {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.bot {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
