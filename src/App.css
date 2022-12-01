@@ -1,0 +1,59 @@
+body {
+  margin: 0 auto;
+}
+
+.App {
+  margin: 50px auto 0;
+  width: 550px;
+  height: 550px;
+  background-color: #F5F7FB;
+}
+
+.karla {
+  font-family: 'Karla', sans-serif;
+}
+
+.inter {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Start Page */
+.start-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.start-container > h1 {
+  font-weight: 700;
+  font-size: 31.25px;
+  line-height: 36.53px;
+  margin: 0;
+  color: #293264;
+}
+
+.start-container > h2 {
+  margin: 10px 0 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.36px;
+  color: #293264
+}
+
+.start-container > button {
+  margin: 29px 0 0;
+  color: #F5F7FB;
+  border: none;
+  background-color: #4D5B9E;
+  width: 193px;
+  height: 52px;
+  border-radius: 15px;;
+}
+
+.start-container > button:hover {
+  background-color: #818ED0;
+  color: #F5F7FB;
+  cursor:pointer;
+}
