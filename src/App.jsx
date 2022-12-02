@@ -7,6 +7,7 @@ import Questions from "./components/Questions";
 function App() {
   const [started, setStarted] = useState(false) // REMEMBER TO CHANGE BACK TO FALSE
   const [questions, setQuestions] = useState([])
+  const [selected, setSelected] = useState(false);
 
   function decodeHtml(html) {
     var txt = document.createElement("textarea");
@@ -23,8 +24,12 @@ function App() {
             return {...question,
               id: uuidv4(),
               question: decodeHtml(question.question),
-              correct_answer: decodeHtml(question.correct_answer),
-              incorrect_answers: question.incorrect_answers.map(answer => decodeHtml(answer))}
+              answers: 
+              [
+                decodeHtml(question.correct_answer), 
+                ...question.incorrect_answers.map(answer => decodeHtml(answer))
+              ]
+              }
           })
           setQuestions(decoded)
       })
@@ -35,11 +40,15 @@ function App() {
     setStarted(prev => !prev);
   }
 
+  // function selectAnswer(id) {
+  //   console.log()
+  // }
+
   return (
     <div className="App">
       {
         started ? 
-        <Questions questions={questions}/> : 
+        <Questions questions={questions} selected={selected} /> : 
         <Start startQuiz={startQuiz} /> 
       }
     </div>

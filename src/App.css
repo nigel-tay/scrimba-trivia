@@ -88,7 +88,7 @@ body {
 
 .button-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .singlequestion-container button {
@@ -96,11 +96,30 @@ body {
   font-size: 10.24px;
   line-height: 12.39px;
   color: #293264;
+  outline: none;
   border-color: #4D5B9E;
   margin: 10px 5px;
   padding: 5px 10px 4px;
-  background-color: transparent;
+  background-color: #F5F7FB;
   border-radius: 7.94px;
+}
+
+.singlequestion-container button:hover {
+  background-color: #D6DBF5;
+  border-color: #D6DBF5;
+}
+
+.selected {
+  font-weight: 500;
+  font-size: 10.24px;
+  line-height: 12.39px;
+  color: #293264;
+  outline: none;
+  margin: 10px 5px;
+  padding: 5px 10px 4px;
+  border-radius: 7.94px;
+  background-color: #D6DBF5;
+  border-color: #D6DBF5;
 }
 
 .singlequestion-container hr {
