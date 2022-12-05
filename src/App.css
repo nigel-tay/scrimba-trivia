@@ -135,7 +135,6 @@ body {
   font-size: 10.24px;
   line-height: 12px;
   padding: 10px 22px;
-  margin-top: 20px;
   border-radius: 10px;
   border: none;
   transition: all 150ms linear;
@@ -152,4 +151,19 @@ body {
   color: #4D5B9E;
   background-color: #D6DBF5;
   border-color: #D6DBF5;
+}
+
+/* Checked */
+.playagain-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.playagain-container h2 {
+  color: #293264;
+  font-weight: 700;
+  font-size: 12.8px;
+  line-height: 15.49px;
+  margin-right: 15px;
 }

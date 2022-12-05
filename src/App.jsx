@@ -7,7 +7,8 @@ import Questions from "./components/Questions";
 function App() {
   const [started, setStarted] = useState(false); // REMEMBER TO CHANGE BACK TO FALSE
   const [questions, setQuestions] = useState([]);
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
+  const [score, setScore] = useState(0);
 
   function decodeHtml(html) {
     var txt = document.createElement("textarea");
@@ -37,11 +38,6 @@ function App() {
             return {...question,
               questionId: uuidv4(),
               question: decodeHtml(question.question),
-              // answerText: 
-              // [
-              //   decodeHtml(question.correct_answer), 
-              //   ...question.incorrect_answers.map(answer => decodeHtml(answer))
-              // ],
               answers: shuffle([
                           {
                             buttonId: uuidv4(),
@@ -68,10 +64,6 @@ function App() {
   }
 
   function selectAnswer(qId, bId) {
-    // let parentQuestion = questions.find(question => question.questionId === qId);
-    // let button = parentQuestion.answers.find(answer => answer.buttonId === bId)
-    // console.log(parentQuestion)
-
     setQuestions((prevQuestions) => {
       return prevQuestions.map((question) => {
         console.log(question.questionId, qId)
@@ -100,6 +92,10 @@ function App() {
     return;
   }
 
+  function playAgain() {
+    setStarted(prev => !prev);
+  }
+
   return (
     <div className="App">
       {
@@ -108,7 +104,9 @@ function App() {
           questions={questions} 
           selectAnswer={selectAnswer} 
           checkAnswers={checkAnswers}
-          checked={checked} /> : 
+          checked={checked}
+          score={score}
+          playAgain={playAgain} /> : 
         <Start startQuiz={startQuiz} /> 
       }
     </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import SingleQuestion from './SingleQuestion';
 
-export default function Questions({questions, selectAnswer, checkAnswers, checked}) {
+export default function Questions({questions, selectAnswer, checkAnswers, checked, score, playAgain}) {
 
   return (
     <div className="questions-container">
@@ -9,7 +9,9 @@ export default function Questions({questions, selectAnswer, checkAnswers, checke
         questions={questions} 
         selectAnswer={selectAnswer} 
         checkAnswers={checkAnswers}
-        checked={checked} />
+        checked={checked}
+        score={score}
+        playAgain={playAgain} />
     </div>
   )
 }
