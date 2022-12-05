@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SingleQuestion({questions, selectAnswer}) {    
+export default function SingleQuestion({questions, selectAnswer, checkAnswers, checked}) {    
 
     console.log(questions)
 
@@ -23,7 +23,7 @@ export default function SingleQuestion({questions, selectAnswer}) {
                     </div>
                 ))
             }
-            <button className='check-button inter'>Check Answers</button>
+            <button className='check-button inter' onClick={checkAnswers}>Check Answers</button>
         </div>
   )
 }

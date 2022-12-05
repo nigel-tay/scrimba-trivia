@@ -5,9 +5,9 @@ import Start from "./components/Start";
 import Questions from "./components/Questions";
 
 function App() {
-  const [started, setStarted] = useState(false) // REMEMBER TO CHANGE BACK TO FALSE
-  const [questions, setQuestions] = useState([])
-  const [correctAnswers, setCorrectAnswers] = useState([])
+  const [started, setStarted] = useState(false); // REMEMBER TO CHANGE BACK TO FALSE
+  const [questions, setQuestions] = useState([]);
+  const [checked, setChecked] = useState(false);
 
   function decodeHtml(html) {
     var txt = document.createElement("textarea");
@@ -34,7 +34,6 @@ function App() {
       .then(data => {
           let encoded = data.results
           let decoded = encoded.map(question => {
-            setCorrectAnswers(prev => [...prev, decodeHtml(question.correct_answer)])  
             return {...question,
               questionId: uuidv4(),
               question: decodeHtml(question.question),
@@ -86,7 +85,10 @@ function App() {
               ...answer,
               selected: !answer.selected
             } :
-            answer
+            {
+              ...answer,
+              selected: false
+            }
           })
         } :
         question
@@ -94,15 +96,19 @@ function App() {
     })
   }
 
-  // function checkAnswers(selected) {
-  //   return;
-  // }
+  function checkAnswers(selected) {
+    return;
+  }
 
   return (
     <div className="App">
       {
         started ? 
-        <Questions questions={questions} selectAnswer={selectAnswer} /> : 
+        <Questions 
+          questions={questions} 
+          selectAnswer={selectAnswer} 
+          checkAnswers={checkAnswers}
+          checked={checked} /> : 
         <Start startQuiz={startQuiz} /> 
       }
     </div>
