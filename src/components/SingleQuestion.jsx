@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SingleQuestion({questions}) {
+export default function SingleQuestion({questions, selectAnswer}) {
 
     /** kiv shuffle functionality */
     function shuffle(array) {
@@ -21,19 +21,20 @@ export default function SingleQuestion({questions}) {
     return (
         <div className="singlequestion-container">
             {
-                questions.map(({id, question, answers}) => (
+                questions.map(({questionId, question, answers}) => (
                     
-                    <div key={id}>
+                    <div key={questionId}>
                         <h1>{question}</h1>
                         <div className="button-container">
-                            {shuffle(answers).map(answer => (
-                                <button>{answer}</button>
-                            ))}
+                            {shuffle(answers.map(({buttonId, text}) => ( //Passing edited id to function so that click knows which button to highlight
+                                <button className="answer-button inter" onClick={() => selectAnswer(buttonId)} >{text}</button>
+                            )))}
                         </div>
                         <hr />
                     </div>
                 ))
             }
+            <button className='check-button inter'>Check Answers</button>
         </div>
   )
 }

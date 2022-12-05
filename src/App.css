@@ -91,7 +91,7 @@ body {
   justify-content: flex-start;
 }
 
-.singlequestion-container button {
+.answer-button {
   font-weight: 500;
   font-size: 10.24px;
   line-height: 12.39px;
@@ -102,9 +102,10 @@ body {
   padding: 5px 10px 4px;
   background-color: #F5F7FB;
   border-radius: 7.94px;
+  transition: all 150ms linear;
 }
 
-.singlequestion-container button:hover {
+.answer-button:hover {
   background-color: #D6DBF5;
   border-color: #D6DBF5;
 }
@@ -124,4 +125,23 @@ body {
 
 .singlequestion-container hr {
   width: 399px;
+}
+
+.check-button {
+  background-color: #4D5B9E;
+  color: #F5F7FB;
+  font-style: medium;
+  font-size: 10.24px;
+  line-height: 12px;
+  padding: 10px 22px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border: none;
+  transition: all 150ms linear;
+}
+
+.check-button:hover {
+  color: #4D5B9E;
+  background-color: #D6DBF5;
+  border-color: #D6DBF5;
 }
