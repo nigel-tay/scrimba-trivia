@@ -15,6 +15,19 @@ function App() {
     return txt.value;
   }
 
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+}
+
   function fetchData() {
     fetch("https://opentdb.com/api.php?amount=5")
       .then(res => res.json())
@@ -23,15 +36,14 @@ function App() {
           let decoded = encoded.map(question => {
             setCorrectAnswers(prev => [...prev, decodeHtml(question.correct_answer)])  
             return {...question,
-              id: uuidv4(),
+              questionId: uuidv4(),
               question: decodeHtml(question.question),
-              selected: false,
               // answerText: 
               // [
               //   decodeHtml(question.correct_answer), 
               //   ...question.incorrect_answers.map(answer => decodeHtml(answer))
               // ],
-              answers: [
+              answers: shuffle([
                           {
                             buttonId: uuidv4(),
                             text: decodeHtml(question.correct_answer),
@@ -44,7 +56,7 @@ function App() {
                               selected: false,
                             }
                           })
-                        ]
+                        ])
               }
           })
           setQuestions(decoded)
@@ -56,14 +68,35 @@ function App() {
     setStarted(prev => !prev);
   }
 
-  function selectAnswer(id) {
-    
-    console.log(id)
+  function selectAnswer(qId, bId) {
+    // let parentQuestion = questions.find(question => question.questionId === qId);
+    // let button = parentQuestion.answers.find(answer => answer.buttonId === bId)
+    // console.log(parentQuestion)
+
+    setQuestions((prevQuestions) => {
+      return prevQuestions.map((question) => {
+        console.log(question.questionId, qId)
+        return question.questionId === qId ?
+        {
+          ...question,
+          answers: question.answers.map ((answer) => {
+            console.log(typeof answer.buttonId, typeof bId, answer.selected)
+            return answer.buttonId === bId ?
+            {
+              ...answer,
+              selected: !answer.selected
+            } :
+            answer
+          })
+        } :
+        question
+      })
+    })
   }
 
-  function checkAnswers(selected) {
-    return;
-  }
+  // function checkAnswers(selected) {
+  //   return;
+  // }
 
   return (
     <div className="App">

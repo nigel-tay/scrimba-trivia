@@ -108,6 +108,7 @@ body {
 .answer-button:hover {
   background-color: #D6DBF5;
   border-color: #D6DBF5;
+  cursor:pointer;
 }
 
 .selected {
@@ -141,6 +142,13 @@ body {
 }
 
 .check-button:hover {
+  color: #4D5B9E;
+  background-color: #D6DBF5;
+  border-color: #D6DBF5;
+  cursor:pointer;
+}
+
+.selected {
   color: #4D5B9E;
   background-color: #D6DBF5;
   border-color: #D6DBF5;
