@@ -16,7 +16,7 @@ export default function SingleQuestion({questions, selectAnswer, checkAnswers, c
                                 {answers.map(({buttonId, text, selected}) => ( //Passing edited id to function so that click knows which button to highlight
                                     <button 
                                     key={buttonId} 
-                                    className={selected? "selected-checked checked-button inter" : "checked-button inter"} 
+                                    className={selected? "selected-checked checked-button inter" : "not-selected checked-button inter"} 
                                     disabled>{text}</button>
                                 ))}
                             </div>

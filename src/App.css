@@ -187,3 +187,9 @@ body {
   border-color: #94D7A2;
   opacity: 100%;
 }
+
+.not-selected-correct-checked {
+  background-color: #94D7A2;
+  border-color: #94D7A2;
+  opacity: 100%;
+}

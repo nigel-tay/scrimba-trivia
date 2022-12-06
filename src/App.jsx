@@ -43,12 +43,14 @@ function App() {
                             buttonId: uuidv4(),
                             text: decodeHtml(question.correct_answer),
                             selected: false,
+                            correct: true
                           }, 
                           ...question.incorrect_answers.map(incorrectAnswer => {
                             return {
                               buttonId: uuidv4(),
                               text: decodeHtml(incorrectAnswer),
                               selected: false,
+                              correct: false
                             }
                           })
                         ])
@@ -89,30 +91,19 @@ function App() {
   }
 
   function checkAnswers() {
-    // look through questions, count how many times selected answers were also correct
-
-    // write out a way to check selected === correct?
-    let correctAnswers = questions.map((question) => {
-      return question.correct_answer
-    })
-
-    let selectedAnswers = [];
+    let tempScore = 0;
     questions.forEach(question => {
+      console.log(question.correct_answer)
       question.answers.forEach(answer => {
         if (answer.selected) {
-          selectedAnswers.push(answer.text);
+          if (answer.correct) {
+            tempScore++
+          }
         }
       })
     })
-    let tempScore = 0;
-    for (let i = 0; i < correctAnswers.length; i++) {
-      if (correctAnswers[i] === selectedAnswers[i]) {
-        tempScore++
-      }
-    }
     setScore(tempScore);
     setChecked(true);
-    console.log(correctAnswers, selectedAnswers);
   }
 
   function playAgain() {
