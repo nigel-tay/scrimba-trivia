@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { v4 as uuidv4 } from 'uuid';
 import Start from "./components/Start";
@@ -9,6 +9,11 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [checked, setChecked] = useState(false);
   const [score, setScore] = useState(0);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    fetchData();
+  }, [started])
 
   function decodeHtml(html) {
     var txt = document.createElement("textarea");
@@ -30,6 +35,7 @@ function App() {
 }
 
   function fetchData() {
+    setLoading(prev => !prev);
     fetch("https://opentdb.com/api.php?amount=5")
       .then(res => res.json())
       .then(data => {
@@ -57,11 +63,11 @@ function App() {
               }
           })
           setQuestions(decoded)
+          setLoading(prev => !prev);
       })
   }
 
   function startQuiz() {
-    fetchData();
     setStarted(prev => !prev);
   }
 
@@ -122,7 +128,8 @@ function App() {
           checkAnswers={checkAnswers}
           checked={checked}
           score={score}
-          playAgain={playAgain} /> : 
+          playAgain={playAgain}
+          loading={loading} /> : 
         <Start startQuiz={startQuiz} /> 
       }
     </div>
