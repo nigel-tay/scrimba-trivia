@@ -7,7 +7,7 @@ import Questions from "./components/Questions";
 function App() {
   const [started, setStarted] = useState(false); // REMEMBER TO CHANGE BACK TO FALSE
   const [questions, setQuestions] = useState([]);
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
   const [score, setScore] = useState(0);
 
   function decodeHtml(html) {
@@ -88,12 +88,37 @@ function App() {
     })
   }
 
-  function checkAnswers(selected) {
-    return;
+  function checkAnswers() {
+    // look through questions, count how many times selected answers were also correct
+
+    // write out a way to check selected === correct?
+    let correctAnswers = questions.map((question) => {
+      return question.correct_answer
+    })
+
+    let selectedAnswers = [];
+    questions.forEach(question => {
+      question.answers.forEach(answer => {
+        if (answer.selected) {
+          selectedAnswers.push(answer.text);
+        }
+      })
+    })
+    let tempScore = 0;
+    for (let i = 0; i < correctAnswers.length; i++) {
+      if (correctAnswers[i] === selectedAnswers[i]) {
+        tempScore++
+      }
+    }
+    setScore(tempScore);
+    setChecked(true);
+    console.log(correctAnswers, selectedAnswers);
   }
 
   function playAgain() {
     setStarted(prev => !prev);
+    setChecked(prev => !prev);
+    setScore(0);
   }
 
   return (

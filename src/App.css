@@ -167,3 +167,23 @@ body {
   line-height: 15.49px;
   margin-right: 15px;
 }
+
+.checked-button {
+  font-weight: 500;
+  font-size: 10.24px;
+  line-height: 12.39px;
+  color: #293264;
+  outline: none;
+  border-color: #4D5B9E;
+  margin: 10px 5px;
+  padding: 5px 10px 4px;
+  background-color: #F5F7FB;
+  border-radius: 7.94px;
+  opacity: 50%;
+}
+
+.selected-checked {
+  background-color: #94D7A2;
+  border-color: #94D7A2;
+  opacity: 100%;
+}
