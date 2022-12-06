@@ -70,6 +70,23 @@ body {
   bottom: 0;
 }
 
+/* Questions */
+.questions-container {
+  position: relative;
+}
+
+.topright {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.botleft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 /* Single Question */
 .singlequestion-container {
   padding: 40px 75px;
